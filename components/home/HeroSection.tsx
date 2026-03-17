@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { LiveBadge } from '@/components/ui/Badge'
 
 const featurePills = [
+  { icon: '📥', label: 'Inbound Campaigns' },
+  { icon: '📤', label: 'Outbound Campaigns' },
   { icon: '📞', label: 'Live Call Tracking' },
   { icon: '💳', label: 'Payment Collection' },
   { icon: '🔄', label: 'Verifier Transfers' },
@@ -76,7 +78,7 @@ export default function HeroSection() {
 
         {/* Category label */}
         <p className="text-xs font-bold tracking-widest uppercase text-teal-dark mb-5">
-          AI-Powered BPO Sales Platform · Trusted by Call Centers Worldwide
+          AI-Powered BPO Sales Platform · Inbound &amp; Outbound · Trusted Worldwide
         </p>
 
         {/* H1 */}
@@ -89,7 +91,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="text-xl text-slate-bpo max-w-2xl mx-auto mb-5 leading-relaxed font-medium">
-          XyBPO Hub is the complete Sales OS for call centers — subscription sales, lead generation &amp; outbound campaigns. Agents, verifiers, QA, MIS, and payments in one secure platform.
+          XyBPO Hub is the complete Sales OS for call centers — built for both <strong className="text-navy">inbound</strong> and <strong className="text-navy">outbound</strong> operations. Subscription sales, lead generation, agents, verifiers, QA, MIS, and live payments — one secure platform.
         </p>
 
         {/* Feature pills */}
