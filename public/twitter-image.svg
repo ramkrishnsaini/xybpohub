@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F1C35"/>
+      <stop offset="100%" style="stop-color:#0a1220"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <circle cx="1050" cy="100" r="280" fill="#00C9A7" fill-opacity="0.04"/>
+
+  <!-- Teal accent bar -->
+  <rect x="72" y="72" width="64" height="6" rx="3" fill="#00C9A7"/>
+
+  <!-- Logo + company -->
+  <text x="72" y="140" font-family="'Arial Black', Arial, sans-serif" font-size="30" font-weight="900">
+    <tspan fill="#FAFAF8">Xy</tspan><tspan fill="#00C9A7">BPO</tspan><tspan fill="#FAFAF8">Hub</tspan>
+  </text>
+  <text x="250" y="140" font-family="Arial, sans-serif" font-size="16" fill="#3D4A5C" font-weight="500">by Xyvionix</text>
+
+  <!-- Main headline -->
+  <text x="72" y="240" font-family="'Arial Black', Arial, sans-serif" font-size="56" font-weight="900" fill="#FAFAF8" letter-spacing="-2">The AI-Powered Sales OS for</text>
+  <text x="72" y="306" font-family="'Arial Black', Arial, sans-serif" font-size="56" font-weight="900" fill="#00C9A7" letter-spacing="-2">BPO Call Centers.</text>
+
+  <!-- Sub -->
+  <text x="72" y="370" font-family="Arial, sans-serif" font-size="22" fill="#6B7C93">
+    Agents · Verifiers · QA · MIS · Payments · API  one platform for every BPO market worldwide. <
+  </text>
+
+  <!-- Badges -->
+  <rect x="72" y="418" width="148" height="40" rx="20" fill="#00C9A7" fill-opacity="0.12" stroke="#00C9A7" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="146" y="443" font-family="Arial, sans-serif" font-size="15" fill="#00C9A7" font-weight="700" text-anchor="middle">HIPAA-Ready</text>
+
+  <rect x="234" y="418" width="188" height="40" rx="20" fill="#00C9A7" fill-opacity="0.12" stroke="#00C9A7" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="328" y="443" font-family="Arial, sans-serif" font-size="15" fill="#00C9A7" font-weight="700" text-anchor="middle">Global BPO Platform</text>
+
+  <rect x="436" y="418" width="188" height="40" rx="20" fill="#00C9A7" fill-opacity="0.12" stroke="#00C9A7" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="530" y="443" font-family="Arial, sans-serif" font-size="15" fill="#00C9A7" font-weight="700" text-anchor="middle">Real-Time Tracking</text>
+
+  <!-- Domain -->
+  <text x="72" y="540" font-family="Arial, sans-serif" font-size="16" fill="#3D4A5C" font-weight="600">xybpohub.com</text>
+</svg>

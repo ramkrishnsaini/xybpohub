@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XyBPOHub — The Sales Operating System for Call Centers</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy:       #0F1C35;
+    --warm-white: #FAFAF8;
+    --slate:      #3D4A5C;
+    --mist:       #F0F2F5;
+    --teal:       #00C9A7;
+    --teal-dark:  #009E84;
+    --orange:     #FF5C35;
+    --purple:     #7C5CFC;
+    --green:      #00E676;
+    --mint:       #C2F5EC;
+    --coral:      #FFD4C2;
+    --lavender:   #DDD6FF;
+    --lime:       #D4F5C2;
+    --amber:      #FFF0C2;
+    --rose:       #FFD6E8;
+  }
+
+  body { font-family: 'Urbanist', sans-serif; background: var(--warm-white); color: var(--navy); }
+
+  /* ── NAVBAR ── */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 60px; background: var(--warm-white);
+    border-bottom: 1px solid #E8E8E8; position: sticky; top: 0; z-index: 100;
+  }
+  .logo { font-size: 22px; font-weight: 800; color: var(--navy); letter-spacing: -0.5px; }
+  .logo span { color: var(--teal); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--slate); font-weight: 500; font-size: 15px; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+  .btn-login { color: var(--slate); font-weight: 500; font-size: 15px; text-decoration: none; }
+  .btn-demo {
+    background: var(--teal); color: white; padding: 11px 24px;
+    border-radius: 50px; font-weight: 700; font-size: 14px;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .btn-demo:hover { background: var(--teal-dark); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 90px 60px 70px;
+    background: var(--warm-white);
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--mint); color: var(--navy);
+    padding: 6px 16px; border-radius: 50px; font-size: 13px; font-weight: 600;
+    margin-bottom: 28px;
+  }
+  .hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); }
+  .hero h1 {
+    font-size: 72px; font-weight: 900; line-height: 1.05;
+    letter-spacing: -2px; color: var(--navy); max-width: 820px; margin: 0 auto 24px;
+  }
+  .hero h1 .highlight { color: var(--teal); }
+  .hero p {
+    font-size: 19px; color: var(--slate); max-width: 560px;
+    margin: 0 auto 40px; line-height: 1.65; font-weight: 400;
+  }
+  .hero-ctas { display: flex; gap: 14px; justify-content: center; margin-bottom: 60px; }
+  .cta-primary {
+    background: var(--orange); color: white; padding: 16px 36px;
+    border-radius: 50px; font-weight: 700; font-size: 16px;
+    text-decoration: none; box-shadow: 0 8px 24px rgba(255,92,53,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(255,92,53,0.45); }
+  .cta-secondary {
+    background: transparent; color: var(--navy); padding: 16px 36px;
+    border-radius: 50px; font-weight: 600; font-size: 16px;
+    text-decoration: none; border: 2px solid var(--navy);
+    transition: background 0.2s;
+  }
+  .cta-secondary:hover { background: var(--mist); }
+
+  /* Dashboard mockup */
+  .dashboard-card {
+    background: white; border-radius: 20px; padding: 28px 32px;
+    max-width: 760px; margin: 0 auto;
+    box-shadow: 0 24px 80px rgba(15,28,53,0.12);
+    border: 1px solid #EEEEEE;
+  }
+  .dash-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 22px;
+  }
+  .dash-title { font-weight: 700; font-size: 16px; color: var(--navy); }
+  .live-badge {
+    background: var(--lime); color: #1a6b1a; padding: 4px 12px;
+    border-radius: 50px; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .dash-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 22px; }
+  .stat-box { background: var(--mist); border-radius: 12px; padding: 16px 18px; }
+  .stat-num { font-size: 26px; font-weight: 800; color: var(--navy); }
+  .stat-label { font-size: 12px; color: var(--slate); font-weight: 500; margin-top: 2px; }
+  .stat-box.teal { background: var(--mint); }
+  .stat-box.coral { background: var(--coral); }
+  .stat-box.lime { background: var(--lime); }
+  .stat-box.amber { background: var(--amber); }
+  .agents-row { display: flex; gap: 10px; }
+  .agent-pill {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--mist); border-radius: 50px; padding: 8px 14px;
+    font-size: 13px; font-weight: 600; color: var(--navy);
+  }
+  .agent-avatar {
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; color: white;
+  }
+  .bar-section { margin-top: 20px; }
+  .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .bar-label { font-size: 12px; color: var(--slate); width: 90px; font-weight: 500; }
+  .bar-track { flex: 1; height: 10px; background: var(--mist); border-radius: 50px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 50px; }
+  .bar-val { font-size: 12px; font-weight: 700; color: var(--navy); width: 36px; text-align: right; }
+
+  /* ── LOGOS STRIP ── */
+  .logos-strip {
+    background: var(--mist); padding: 28px 60px;
+    display: flex; align-items: center; justify-content: center; gap: 60px;
+    flex-wrap: wrap;
+  }
+  .logos-strip span {
+    font-size: 16px; font-weight: 700; color: #9CA3AF; letter-spacing: 0.5px;
+  }
+
+  /* ── FEATURES ── */
+  .features {
+    padding: 90px 60px;
+    background: var(--warm-white);
+  }
+  .section-tag {
+    display: inline-block; background: var(--lavender); color: var(--purple);
+    padding: 5px 14px; border-radius: 50px; font-size: 12px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: 44px; font-weight: 800; color: var(--navy);
+    letter-spacing: -1px; max-width: 520px; line-height: 1.1; margin-bottom: 12px;
+  }
+  .section-sub { font-size: 17px; color: var(--slate); max-width: 480px; line-height: 1.6; margin-bottom: 52px; }
+  .features-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .feat-card {
+    border-radius: 20px; padding: 32px 28px;
+    border: 1.5px solid transparent; transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .feat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(15,28,53,0.08); }
+  .feat-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 18px;
+  }
+  .feat-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .feat-card p { font-size: 14px; color: var(--slate); line-height: 1.65; }
+
+  /* ── WORKFLOW ── */
+  .workflow { padding: 80px 60px; background: var(--mist); }
+  .workflow-title { font-size: 40px; font-weight: 800; color: var(--navy); text-align: center; margin-bottom: 10px; letter-spacing: -1px; }
+  .workflow-sub { text-align: center; color: var(--slate); font-size: 16px; margin-bottom: 48px; }
+  .workflow-steps { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
+  .step-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .step-circle {
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 800; color: white;
+  }
+  .step-label { font-size: 13px; font-weight: 600; color: var(--navy); text-align: center; max-width: 70px; }
+  .step-arrow { font-size: 22px; color: #CBD5E0; margin: 0 10px; padding-bottom: 22px; }
+
+  /* ── WAVES ── */
+  .waves-divider { width: 100%; overflow: hidden; line-height: 0; }
+  .waves-divider svg { display: block; }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    background: var(--navy); padding: 80px 60px;
+    text-align: center;
+  }
+  .cta-banner h2 {
+    font-size: 48px; font-weight: 900; color: white;
+    letter-spacing: -1.5px; margin-bottom: 16px; line-height: 1.1;
+  }
+  .cta-banner p { color: var(--teal); font-size: 18px; font-weight: 500; margin-bottom: 36px; }
+  .cta-banner-btn {
+    background: var(--orange); color: white; padding: 18px 44px;
+    border-radius: 50px; font-weight: 800; font-size: 17px;
+    text-decoration: none; display: inline-block;
+    box-shadow: 0 8px 32px rgba(255,92,53,0.4);
+    transition: transform 0.2s;
+  }
+  .cta-banner-btn:hover { transform: translateY(-3px); }
+  .cta-sub { margin-top: 16px; color: #6B7C93; font-size: 14px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080F1C; padding: 36px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  footer .logo { font-size: 18px; }
+  footer p { color: #6B7C93; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">Xy<span>BPO</span>Hub</div>
+  <ul class="nav-links">
+    <li><a href="#">Platform</a></li>
+    <li><a href="#">Features</a></li>
+    <li><a href="#">Pricing</a></li>
+    <li><a href="#">Resources</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#" class="btn-login">Log In</a>
+    <a href="#" class="btn-demo">Book A Demo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span> Live Sales Tracking · Real-Time Revenue</div>
+  <h1>Turn Every Call Into<br><span class="highlight">Tracked Revenue.</span></h1>
+  <p>The only Sales Operating System built exclusively for BPO teams. Agents, campaigns, upsells, payments and QA — in one platform.</p>
+  <div class="hero-ctas">
+    <a href="#" class="cta-primary">🚀 Get A Free Demo</a>
+    <a href="#" class="cta-secondary">See How It Works →</a>
+  </div>
+
+  <!-- Dashboard Card -->
+  <div class="dashboard-card">
+    <div class="dash-header">
+      <div class="dash-title">📊 Live Sales Dashboard — Campaign: TV Products</div>
+      <div class="live-badge"><span class="live-dot"></span> LIVE</div>
+    </div>
+    <div class="dash-stats">
+      <div class="stat-box teal"><div class="stat-num">₹4.2L</div><div class="stat-label">Revenue Today</div></div>
+      <div class="stat-box coral"><div class="stat-num">138</div><div class="stat-label">Total Sales</div></div>
+      <div class="stat-box lime"><div class="stat-num">64%</div><div class="stat-label">Upsell Rate</div></div>
+      <div class="stat-box amber"><div class="stat-num">34</div><div class="stat-label">Active Agents</div></div>
+    </div>
+    <div class="bar-section">
+      <div class="bar-row">
+        <span class="bar-label">Agent: Rahul</span>
+        <div class="bar-track"><div class="bar-fill" style="width:88%; background:#00C9A7;"></div></div>
+        <span class="bar-val">22 sales</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Agent: Priya</span>
+        <div class="bar-track"><div class="bar-fill" style="width:72%; background:#FF5C35;"></div></div>
+        <span class="bar-val">18 sales</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Agent: Arjun</span>
+        <div class="bar-track"><div class="bar-fill" style="width:60%; background:#7C5CFC;"></div></div>
+        <span class="bar-val">15 sales</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Upsell Team</span>
+        <div class="bar-track"><div class="bar-fill" style="width:80%; background:#00E676;"></div></div>
+        <span class="bar-val">+₹1.1L</span>
+      </div>
+    </div>
+    <div class="agents-row" style="margin-top:18px;">
+      <div class="agent-pill"><div class="agent-avatar" style="background:#00C9A7;">R</div> Rahul — Core Sale ✅</div>
+      <div class="agent-pill"><div class="agent-avatar" style="background:#FF5C35;">P</div> Priya — Verifier 🔄</div>
+      <div class="agent-pill"><div class="agent-avatar" style="background:#7C5CFC;">A</div> Arjun — QA Review 🔍</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS STRIP -->
+<div class="logos-strip">
+  <span>VICIDIAL</span><span>STRIPE</span><span>SALESFORCE</span>
+  <span>ZOHO</span><span>PAYPAL</span><span>TWILIO</span><span>ZAPIER</span>
+</div>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="section-tag">PLATFORM FEATURES</div>
+  <div class="section-title">Everything your BPO sales team needs.</div>
+  <div class="section-sub">One platform. Zero spreadsheets. Complete visibility from first call to final payment.</div>
+  <div class="features-grid">
+    <div class="feat-card" style="background:var(--mint); border-color:#A8EFE0;">
+      <div class="feat-icon" style="background:var(--teal);">📈</div>
+      <h3>Real-Time Sales Tracking</h3>
+      <p>See every sale as it happens. Monitor revenue, agent conversions, and campaign performance live on your dashboard.</p>
+    </div>
+    <div class="feat-card" style="background:var(--coral); border-color:#FFC4AB;">
+      <div class="feat-icon" style="background:var(--orange);">💰</div>
+      <h3>Verifier Upsell System</h3>
+      <p>Automatically transfer calls to verifiers after core sales. Increase order value with structured upsell workflows.</p>
+    </div>
+    <div class="feat-card" style="background:var(--lavender); border-color:#C9BFFF;">
+      <div class="feat-icon" style="background:var(--purple);">🎯</div>
+      <h3>Campaign Management</h3>
+      <p>Launch multiple campaigns with different products, scripts, agents and workflows — all from one screen.</p>
+    </div>
+    <div class="feat-card" style="background:var(--lime); border-color:#B8EFA8;">
+      <div class="feat-icon" style="background:#2ECC71;">👥</div>
+      <h3>Agent Performance</h3>
+      <p>Track every agent's conversion rate, call duration, and revenue contribution in real time with detailed leaderboards.</p>
+    </div>
+    <div class="feat-card" style="background:var(--amber); border-color:#FFE49A;">
+      <div class="feat-icon" style="background:#F59E0B;">📊</div>
+      <h3>MIS & Reports</h3>
+      <p>Complete management dashboards — agent reports, verifier reports, product performance and revenue breakdowns.</p>
+    </div>
+    <div class="feat-card" style="background:var(--rose); border-color:#FFC0D8;">
+      <div class="feat-icon" style="background:#E91E8C;">🔍</div>
+      <h3>QA & Compliance</h3>
+      <p>Quality teams review calls, verify sales accuracy and flag compliance issues — all tracked inside the platform.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="workflow">
+  <div class="section-tag" style="background:var(--amber); color:#92610A; display:block; text-align:center; width:fit-content; margin:0 auto 16px;">SALES WORKFLOW</div>
+  <div class="workflow-title">From First Call to Final Revenue</div>
+  <div class="workflow-sub">Your entire BPO sales process — structured, automated, and tracked in one place.</div>
+  <div class="workflow-steps">
+    <div class="step-item">
+      <div class="step-circle" style="background:var(--teal);">📞</div>
+      <div class="step-label">Agent Call</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step-item">
+      <div class="step-circle" style="background:var(--orange);">📋</div>
+      <div class="step-label">Lead Capture</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step-item">
+      <div class="step-circle" style="background:var(--purple);">🛒</div>
+      <div class="step-label">Core Sale</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step-item">
+      <div class="step-circle" style="background:#2ECC71;">🔄</div>
+      <div class="step-label">Verifier</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step-item">
+      <div class="step-circle" style="background:#F59E0B;">💳</div>
+      <div class="step-label">Upsell</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step-item">
+      <div class="step-circle" style="background:#E91E8C;">✅</div>
+      <div class="step-label">QA Review</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step-item">
+      <div class="step-circle" style="background:var(--navy);">📊</div>
+      <div class="step-label">Live Report</div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE DIVIDER -->
+<div class="waves-divider">
+  <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:120px; width:100%;">
+    <path d="M0,60 C240,110 480,10 720,60 C960,110 1200,10 1440,60 L1440,120 L0,120 Z" fill="#C2F5EC" opacity="0.7"/>
+    <path d="M0,80 C360,20 720,100 1080,40 C1260,10 1380,70 1440,80 L1440,120 L0,120 Z" fill="#DDD6FF" opacity="0.6"/>
+    <path d="M0,100 C200,70 500,120 800,90 C1100,60 1300,110 1440,100 L1440,120 L0,120 Z" fill="#FFD4C2" opacity="0.5"/>
+  </svg>
+</div>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>Ready to run your entire<br>BPO on one platform?</h2>
+  <p>Join call centers already tracking real-time revenue with XyBPOHub.</p>
+  <a href="#" class="cta-banner-btn">🚀 Book Your Free Demo</a>
+  <div class="cta-sub">No credit card required · Setup in under 30 minutes · Cancel anytime</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo" style="color:white;">Xy<span style="color:var(--teal);">BPO</span>Hub</div>
+  <p>© 2026 XyBPOHub · The Sales Operating System for Call Centers</p>
+  <p style="color:#6B7C93; font-size:13px;">Platform · Pricing · Privacy · Contact</p>
+</footer>
+
+</body>
+</html>

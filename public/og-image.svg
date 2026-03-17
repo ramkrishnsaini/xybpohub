@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F1C35"/>
+      <stop offset="100%" style="stop-color:#0d1a2f"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00C9A7;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#00C9A7;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Accent glow top-right -->
+  <circle cx="1100" cy="80" r="320" fill="#00C9A7" fill-opacity="0.04"/>
+  <!-- Accent glow bottom-left -->
+  <circle cx="100" cy="580" r="250" fill="#FF5C35" fill-opacity="0.03"/>
+
+  <!-- Left teal bar accent -->
+  <rect x="72" y="72" width="5" height="80" rx="3" fill="#00C9A7"/>
+
+  <!-- Logo -->
+  <text x="90" y="138" font-family="'Arial Black', Arial, sans-serif" font-size="34" font-weight="900" letter-spacing="-1">
+    <tspan fill="#FAFAF8">Xy</tspan><tspan fill="#00C9A7">BPO</tspan><tspan fill="#FAFAF8">Hub</tspan>
+  </text>
+  <text x="90" y="162" font-family="Arial, sans-serif" font-size="14" fill="#3D4A5C" font-weight="600" letter-spacing="3">BY XYVIONIX</text>
+
+  <!-- Live badge -->
+  <rect x="940" y="110" width="188" height="40" rx="20" fill="#00C9A7" fill-opacity="0.15" stroke="#00C9A7" stroke-opacity="0.3" stroke-width="1"/>
+  <circle cx="960" cy="130" r="5" fill="#00C9A7"/>
+  <text x="975" y="135" font-family="Arial, sans-serif" font-size="14" fill="#00C9A7" font-weight="700">AI-Powered Platform</text>
+
+  <!-- Main headline -->
+  <text x="90" y="270" font-family="'Arial Black', Arial, sans-serif" font-size="60" font-weight="900" fill="#FAFAF8" letter-spacing="-2">Track Every Call,</text>
+  <text x="90" y="342" font-family="'Arial Black', Arial, sans-serif" font-size="60" font-weight="900" letter-spacing="-2">
+    <tspan fill="#FAFAF8">Agent &amp; Sale </tspan><tspan fill="#00C9A7"> In Real Time.</tspan>
+  </text>
+
+  <!-- Sub description -->
+  <text x="90" y="400" font-family="Arial, sans-serif" font-size="22" fill="#3D4A5C" font-weight="400">
+    The global Sales OS for BPO call centers. Subscription sales, verifier workflows,
+  </text>
+  <text x="90" y="428" font-family="Arial, sans-serif" font-size="22" fill="#3D4A5C">
+    AI QA, MIS reporting, and live payments  one platform, every market.
+  </text>
+
+  <!-- Feature pills row -->
+  <!-- Pill 1 -->
+  <rect x="90" y="466" width="168" height="38" rx="19" fill="#FAFAF8" fill-opacity="0.05" stroke="#FAFAF8" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="174" y="490" font-family="Arial, sans-serif" font-size="14" fill="#FAFAF8" font-weight="600" text-anchor="middle">=Þ Live Call Tracking</text>
+  <!-- Pill 2 -->
+  <rect x="272" y="466" width="172" height="38" rx="19" fill="#FAFAF8" fill-opacity="0.05" stroke="#FAFAF8" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="358" y="490" font-family="Arial, sans-serif" font-size="14" fill="#FAFAF8" font-weight="600" text-anchor="middle">=³ Payment Processing</text>
+  <!-- Pill 3 -->
+  <rect x="458" y="466" width="158" height="38" rx="19" fill="#FAFAF8" fill-opacity="0.05" stroke="#FAFAF8" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="537" y="490" font-family="Arial, sans-serif" font-size="14" fill="#FAFAF8" font-weight="600" text-anchor="middle">>à AI-Powered QA</text>
+  <!-- Pill 4 -->
+  <rect x="630" y="466" width="152" height="38" rx="19" fill="#FAFAF8" fill-opacity="0.05" stroke="#FAFAF8" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="706" y="490" font-family="Arial, sans-serif" font-size="14" fill="#FAFAF8" font-weight="600" text-anchor="middle">=Ê Automated MIS</text>
+  <!-- Pill 5 -->
+  <rect x="796" y="466" width="144" height="38" rx="19" fill="#FAFAF8" fill-opacity="0.05" stroke="#FAFAF8" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="868" y="490" font-family="Arial, sans-serif" font-size="14" fill="#FAFAF8" font-weight="600" text-anchor="middle">= API Webhooks</text>
+
+  <!-- Bottom compliance strip -->
+  <line x1="90" y1="536" x2="1110" y2="536" stroke="#1E2D45" stroke-width="1"/>
+  <text x="90" y="568" font-family="Arial, sans-serif" font-size="14" fill="#3D4A5C" font-weight="600"><å HIPAA-Ready</text>
+  <text x="250" y="568" font-family="Arial, sans-serif" font-size="14" fill="#3D4A5C" font-weight="600">< Global BPO Platform</text>
+  <text x="460" y="568" font-family="Arial, sans-serif" font-size="14" fill="#3D4A5C" font-weight="600">= SOC 2 Aligned</text>
+  <text x="640" y="568" font-family="Arial, sans-serif" font-size="14" fill="#3D4A5C" font-weight="600"><â Multi-Tenant</text>
+  <text x="820" y="568" font-family="Arial, sans-serif" font-size="14" fill="#3D4A5C" font-weight="600"><ú<ø USA Data Centers</text>
+  <text x="1010" y="568" font-family="Arial, sans-serif" font-size="14" fill="#3D4A5C" font-weight="600">& In-House Deploy</text>
+</svg>

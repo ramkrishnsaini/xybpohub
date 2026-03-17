@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-warm-white text-navy font-urbanist antialiased;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Sharper rendering for high-DPI */
+  img, svg {
+    display: block;
+  }
+}
+
+@layer components {
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-orange-bpo text-white font-bold rounded-full transition-all duration-200 shadow-orange hover:shadow-orange-lg hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 bg-transparent text-navy font-semibold rounded-full border-2 border-navy transition-all duration-200 hover:bg-mist active:bg-gray-100;
+  }
+
+  .btn-teal {
+    @apply inline-flex items-center justify-center gap-2 bg-teal text-white font-bold rounded-full transition-all duration-200 hover:bg-teal-dark active:bg-teal-dark;
+  }
+
+  /* ── Layout ── */
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 lg:px-16;
+  }
+
+  /* Generous enterprise-grade section spacing */
+  .section-padding {
+    @apply py-24 lg:py-32;
+  }
+
+  /* Section header block — consistent spacing for every section's intro */
+  .section-header {
+    @apply mb-16;
+  }
+
+  .section-header-center {
+    @apply mb-16 text-center;
+  }
+
+  /* ── Typography ── */
+  .heading-xl {
+    @apply text-5xl lg:text-[72px] font-black leading-[1.02] tracking-[-0.04em] text-navy;
+  }
+
+  .heading-lg {
+    @apply text-4xl lg:text-5xl font-extrabold leading-tight tracking-[-0.03em] text-navy;
+  }
+
+  .heading-md {
+    @apply text-3xl lg:text-4xl font-extrabold leading-tight tracking-[-0.02em] text-navy;
+  }
+
+  .heading-sm {
+    @apply text-2xl lg:text-3xl font-extrabold leading-tight tracking-tight text-navy;
+  }
+
+  .body-lg {
+    @apply text-xl text-slate-bpo leading-[1.75] font-normal;
+  }
+
+  .body-md {
+    @apply text-base text-slate-bpo leading-relaxed;
+  }
+
+  /* Card/component body descriptions */
+  .card-desc {
+    @apply text-base text-slate-bpo leading-relaxed;
+  }
+
+  /* ── UI atoms ── */
+  .live-dot {
+    @apply w-1.5 h-1.5 rounded-full bg-teal animate-pulse-dot;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  /* Section divider — subtle line between same-bg sections */
+  .section-divider {
+    @apply border-t border-gray-100;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-navy {
+    background: linear-gradient(135deg, #0F1C35 0%, #1a2d52 100%);
+  }
+
+  .gradient-teal {
+    background: linear-gradient(135deg, #00C9A7 0%, #009E84 100%);
+  }
+
+  /* Subtle top edge for cards on same-bg sections */
+  .section-edge {
+    border-top: 1px solid rgba(15, 28, 53, 0.06);
+  }
+}
