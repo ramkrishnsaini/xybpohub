@@ -211,6 +211,19 @@ export default function RootLayout({
 
         {/* WhatsApp / iMessage link previews */}
         <meta name="thumbnail" content={`${BASE_URL}/og-image.svg`} />
+
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6TKPEE2WC" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-F6TKPEE2WC');
+            `,
+          }}
+        />
       </head>
       <body className="font-urbanist bg-warm-white text-navy antialiased">
         <Navbar />
