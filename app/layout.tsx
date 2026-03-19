@@ -17,6 +17,10 @@ const BASE_URL = 'https://xybpohub.com'
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 
+  icons: {
+    icon: '/fav.ico',
+  },
+
   title: {
     default: 'XyBPO Hub — Sales Operating System for BPO Call Centers',
     template: '%s | XyBPO Hub',

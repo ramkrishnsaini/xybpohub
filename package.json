@@ -10,11 +10,9 @@
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
-    "libphonenumber-js": "^1.12.40",
     "next": "^16.1.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-phone-number-input": "^3.4.16"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^22",

@@ -2,6 +2,14 @@ import SectionTag from '@/components/ui/SectionTag'
 
 const features = [
   {
+    icon: '🏢',
+    title: 'Multi-Center Management',
+    body: 'For campaign owners, center owners, and BPO agencies. Manage multiple campaigns and multiple centers from one centralized location — view all centers, compare performance, and control campaigns across locations from a single dashboard.',
+    bg: 'bg-mint',
+    border: 'border-teal/30',
+    iconBg: 'bg-teal',
+  },
+  {
     icon: '📈',
     title: 'Real-Time Sales Tracking',
     body: 'See every sale as it happens. Monitor revenue, agent conversions, and campaign performance live — no refresh needed.',

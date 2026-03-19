@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { LiveBadge } from '@/components/ui/Badge'
 
 const featurePills = [
+  { icon: '🏢', label: 'Multi-Center Management' },
   { icon: '📥', label: 'Inbound Campaigns' },
   { icon: '📤', label: 'Outbound Campaigns' },
   { icon: '📞', label: 'Live Call Tracking' },
@@ -91,7 +92,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="text-xl text-slate-bpo max-w-2xl mx-auto mb-5 leading-relaxed font-medium">
-          XyBPO Hub is the complete Sales OS for call centers — built for both <strong className="text-navy">inbound</strong> and <strong className="text-navy">outbound</strong> operations. Subscription sales, lead generation, agents, verifiers, QA, MIS, and live payments — one secure platform.
+          XyBPO Hub is the complete Sales OS for call centers — built for both <strong className="text-navy">inbound</strong> and <strong className="text-navy">outbound</strong> operations. For campaign owners, center owners, and BPO agencies — manage multiple campaigns and multiple centers from one centralized location. Subscription sales, lead generation, agents, verifiers, QA, MIS, and live payments — one secure platform.
         </p>
 
         {/* Feature pills */}

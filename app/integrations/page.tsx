@@ -63,10 +63,10 @@ export default function IntegrationsPage() {
         <div className="section-container text-center">
           <SectionTag variant="teal" className="mb-5">Integrations</SectionTag>
           <h1 className="heading-xl max-w-2xl mx-auto mb-6">
-            Connect XyBPO Hub to the Tools You Already Use.
+            Connect <span className="text-navy">Xy</span><span className="text-teal">BPO</span> <span className="text-navy">Hub</span> to the Tools You Already Use.
           </h1>
           <p className="body-lg max-w-xl mx-auto mb-10">
-            Native integrations and open APIs mean XyBPO Hub plugs into your existing stack in hours — not weeks. From dialers to payment gateways to CRMs.
+            Native integrations and open APIs mean <span className="text-navy">Xy</span><span className="text-teal">BPO</span> <span className="text-navy">Hub</span> plugs into your existing stack in hours — not weeks. From dialers to payment gateways to CRMs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/demo/" className="btn-primary px-8 py-3.5 text-sm">Talk to an Integration Specialist →</Link>
@@ -108,7 +108,7 @@ export default function IntegrationsPage() {
                 Full REST API & Webhook Support
               </h2>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Every sale, lead, and QA event in XyBPO Hub is available via REST API. Configure Webhooks per campaign for real-time push delivery. OAuth 2.0 authentication, sandbox environment, and dedicated technical onboarding for enterprise accounts.
+                Every sale, lead, and QA event in <span className="text-white">Xy</span><span className="text-teal">BPO</span> <span className="text-white">Hub</span> is available via REST API. Configure Webhooks per campaign for real-time push delivery. OAuth 2.0 authentication, sandbox environment, and dedicated technical onboarding for enterprise accounts.
               </p>
               <ul className="space-y-3">
                 {['REST API for all events', 'Webhook delivery per campaign', 'OAuth 2.0 authentication', 'Sandbox environment', 'Rate limiting & retry logic', 'Dedicated API docs'].map((f) => (

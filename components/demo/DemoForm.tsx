@@ -2,51 +2,27 @@
 
 import { useState } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
-import PhoneInput, { isValidPhoneNumber, parsePhoneNumber } from 'react-phone-number-input'
-import 'react-phone-number-input/style.css'
-
-/** Validates phone: must be valid. For US, reject +1 1 256... (11 digits) - only accept +1 256... (10 digits) */
-function isValidPhoneStrict(value: string | undefined): boolean {
-  if (!value) return false
-  if (!isValidPhoneNumber(value)) return false
-  const parsed = parsePhoneNumber(value)
-  if (!parsed) return false
-  if (parsed.country === 'US') {
-    const digitsOnly = value.replace(/\D/g, '')
-    if (digitsOnly.length === 12 && digitsOnly.startsWith('11')) {
-      return false
-    }
-  }
-  return true
-}
 
 const inputBase =
   'w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-navy placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition'
 
 export default function DemoForm() {
   const [state, handleSubmit, reset] = useForm('mpqybndj')
-  const [phoneValue, setPhoneValue] = useState<string | undefined>(undefined)
-  const [phoneError, setPhoneError] = useState('')
+  const [phoneValue, setPhoneValue] = useState('')
+
+  function handlePhoneChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const v = e.target.value.replace(/[^0-9\s+]/g, '').slice(0, 20)
+    setPhoneValue(v)
+  }
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setPhoneError('')
-
-    if (!phoneValue) {
-      setPhoneError('Please enter your phone number.')
-      return
-    }
-    if (!isValidPhoneStrict(phoneValue)) {
-      setPhoneError('Please enter a valid phone number (e.g. +1 256 398 7452).')
-      return
-    }
-
     handleSubmit(e)
   }
 
   function handleReset() {
     reset()
-    setPhoneValue(undefined)
+    setPhoneValue('')
   }
 
   if (state.succeeded) {
@@ -113,35 +89,17 @@ export default function DemoForm() {
         </div>
         <div>
           <label className="block text-sm font-semibold text-navy mb-1.5">Phone Number *</label>
-          <PhoneInput
-            international
-            defaultCountry="US"
-            limitMaxLength
-            value={phoneValue}
-            onChange={(v) => {
-              setPhoneValue(v ?? undefined)
-              setPhoneError('')
-            }}
-            onBlur={() => {
-              if (phoneValue && !isValidPhoneStrict(phoneValue)) {
-                setPhoneError('Please enter a valid phone number (e.g. +1 256 398 7452).')
-              }
-            }}
+          <input
             name="phone"
-            placeholder="Enter phone number"
-            className={`PhoneInput ${phoneError ? 'border-red-500' : ''}`}
-            numberInputProps={{
-              className: inputBase,
-              required: true,
-              name: 'phone',
-            }}
-            countrySelectProps={{
-              className: '!px-3 !py-3 !rounded-l-xl !border !border-gray-200 !bg-gray-50',
-            }}
+            type="text"
+            inputMode="tel"
+            placeholder="e.g. +1 555 123 4567"
+            value={phoneValue}
+            onChange={handlePhoneChange}
+            maxLength={20}
+            className={inputBase}
+            required
           />
-          {phoneError && (
-            <p className="mt-1 text-xs text-red-600">{phoneError}</p>
-          )}
         </div>
       </div>
 

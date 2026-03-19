@@ -50,7 +50,7 @@ export default function PlatformOverview() {
             One Platform. Every Role.<br />Real-Time Control.
           </h2>
           <p className="body-lg max-w-xl mx-auto">
-            XyBPO Hub is not a CRM. It&apos;s a complete Sales Operating System — purpose-built for multi-center BPOs running inbound and outbound campaigns.
+            XyBPO Hub is not a CRM. It&apos;s a complete Sales Operating System — purpose-built for campaign owners, center owners, and BPO agencies managing multiple campaigns and multiple centers. One centralized platform for inbound and outbound operations.
           </p>
         </div>
 
