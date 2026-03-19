@@ -100,6 +100,20 @@
   .section-divider {
     @apply border-t border-gray-100;
   }
+
+  /* Phone input — match form field styling */
+  .PhoneInput {
+    @apply rounded-xl border border-gray-200 bg-white overflow-hidden;
+  }
+  .PhoneInput:focus-within {
+    @apply ring-2 ring-teal border-transparent;
+  }
+  .PhoneInput .PhoneInputCountry {
+    @apply pl-3 pr-2 py-0;
+  }
+  .PhoneInput .PhoneInputInput {
+    @apply border-0 !px-4 !py-3 !rounded-none text-navy placeholder-gray-400 text-sm focus:outline-none focus:ring-0;
+  }
 }
 
 @layer utilities {
