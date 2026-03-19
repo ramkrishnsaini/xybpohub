@@ -31,7 +31,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-1 text-xl font-black tracking-tight text-navy">
-          Xy<span className="text-teal">BPO</span>Hub
+          Xy <span className="text-teal">BPO</span> Hub
         </Link>
 
         {/* Desktop Links */}

@@ -2,8 +2,23 @@
 
 import { useState } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
-import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input'
+import PhoneInput, { isValidPhoneNumber, parsePhoneNumber } from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
+
+/** Validates phone: must be valid. For US, reject +1 1 256... (11 digits) - only accept +1 256... (10 digits) */
+function isValidPhoneStrict(value: string | undefined): boolean {
+  if (!value) return false
+  if (!isValidPhoneNumber(value)) return false
+  const parsed = parsePhoneNumber(value)
+  if (!parsed) return false
+  if (parsed.country === 'US') {
+    const digitsOnly = value.replace(/\D/g, '')
+    if (digitsOnly.length === 12 && digitsOnly.startsWith('11')) {
+      return false
+    }
+  }
+  return true
+}
 
 const inputBase =
   'w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-navy placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition'
@@ -21,8 +36,8 @@ export default function DemoForm() {
       setPhoneError('Please enter your phone number.')
       return
     }
-    if (!isValidPhoneNumber(phoneValue)) {
-      setPhoneError('Please enter a valid phone number.')
+    if (!isValidPhoneStrict(phoneValue)) {
+      setPhoneError('Please enter a valid phone number (e.g. +1 256 398 7452).')
       return
     }
 
@@ -101,14 +116,15 @@ export default function DemoForm() {
           <PhoneInput
             international
             defaultCountry="US"
+            limitMaxLength
             value={phoneValue}
             onChange={(v) => {
               setPhoneValue(v ?? undefined)
               setPhoneError('')
             }}
             onBlur={() => {
-              if (phoneValue && !isValidPhoneNumber(phoneValue)) {
-                setPhoneError('Please enter a valid phone number.')
+              if (phoneValue && !isValidPhoneStrict(phoneValue)) {
+                setPhoneError('Please enter a valid phone number (e.g. +1 256 398 7452).')
               }
             }}
             name="phone"

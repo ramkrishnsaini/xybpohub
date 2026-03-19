@@ -27,7 +27,7 @@ export default function DemoPage() {
           <div>
             <SectionTag variant="teal" className="mb-5">Book A Demo</SectionTag>
             <h1 className="heading-xl mb-5">
-              See XyBPO Hub Running Live in 30 Minutes.
+              See <span className="text-navy">Xy</span><span className="text-teal">BPO</span><span className="text-navy">Hub</span> Running Live in 30 Minutes.
             </h1>
             <p className="body-lg mb-8">
               We&apos;ll walk you through a real campaign setup — agent view, verifier view, live dashboard, and API output — matched to your specific campaign type.

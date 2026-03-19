@@ -61,18 +61,18 @@ export default function PlatformPage() {
       {/* Hero */}
       <section className="section-padding bg-warm-white">
         <div className="section-container">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto text-center">
             <SectionTag variant="teal" className="mb-5">Platform Overview</SectionTag>
             <h1 className="heading-xl mb-6">
               The Sales OS Your BPO Has Been Missing.
             </h1>
-            <p className="body-lg mb-4 max-w-2xl">
+            <p className="body-lg mb-4 max-w-2xl mx-auto">
               Most BPO software was built for generic contact centers. XyBPO Hub was built for one thing — BPOs running live sales campaigns where every second on a call is revenue, or a missed opportunity.
             </p>
-            <p className="body-lg mb-10 max-w-2xl">
+            <p className="body-lg mb-10 max-w-2xl mx-auto">
               We didn&apos;t adapt a generic CRM. We built from scratch, starting with the way an agent dispositions a call, the way a verifier confirms an order, and the way a campaign owner measures ROI.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/demo/" className="btn-primary px-8 py-3.5 text-sm">Book A Demo →</Link>
               <Link href="/features/" className="btn-secondary px-8 py-3.5 text-sm">All Features</Link>
             </div>
